@@ -30,7 +30,7 @@ function App() {
       </header>
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
         <Routes>
-          <Route path="/" element={<PortalPage />} />
+          <Route path="/portal" element={<PortalPage />} />
           <Route path="/users" element={<UsersListPage />} />
           <Route path="/users/new" element={<UserCreatePage />} />
           <Route path="/users/:id" element={<UserViewPage />} />
