@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/react-fullstack-crud/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react-fullstack-crud</title>
+    <script>
+      (function () {
+        var redirect = window.location.search;
+        if (redirect.startsWith("?/")) {
+          var path = redirect.slice(2).replace(/&/g, "?");
+          window.history.replaceState(null, "", "/" + path);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/react-fullstack-crud/assets/index-DVFcLpHJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/react-fullstack-crud/assets/index-D4TLXri9.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
