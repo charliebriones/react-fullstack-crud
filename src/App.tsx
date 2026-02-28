@@ -18,6 +18,7 @@ function App() {
               React + TanStack Query • .NET API • Azure SQL
             </p>
           </div>
+
           <nav className="flex flex-wrap items-center gap-2">
             <Link
               to="/"
@@ -25,16 +26,29 @@ function App() {
             >
               Portal
             </Link>
+
+            <Link
+              to="/users"
+              className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
+            >
+              React CRUD
+            </Link>
           </nav>
         </div>
       </header>
+
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
         <Routes>
-          <Route path="/portal" element={<PortalPage />} />
+          {/* Portal as Home */}
+          <Route path="/" element={<PortalPage />} />
+
+          {/* React CRUD */}
           <Route path="/users" element={<UsersListPage />} />
           <Route path="/users/new" element={<UserCreatePage />} />
           <Route path="/users/:id" element={<UserViewPage />} />
           <Route path="/users/:id/edit" element={<UserEditPage />} />
+
+          {/* 404 */}
           <Route
             path="*"
             element={
@@ -42,6 +56,7 @@ function App() {
                 <h2 className="text-2xl font-bold text-slate-900">
                   404 — Page not found
                 </h2>
+
                 <Link
                   to="/"
                   className="mt-6 inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700"
