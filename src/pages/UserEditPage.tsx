@@ -55,12 +55,6 @@ export function UserEditPage() {
           <p className="mt-2 text-sm text-slate-600">
             The URL is missing a valid user id.
           </p>
-          <Link
-            to="/users"
-            className="mt-4 inline-block text-sm font-semibold text-indigo-600 hover:text-indigo-700"
-          >
-            ← Back to Users
-          </Link>
         </div>
       </div>
     );
@@ -79,13 +73,6 @@ export function UserEditPage() {
               Update the user details and save changes.
             </p>
           </div>
-
-          <Link
-            to="/users"
-            className="text-sm font-semibold text-slate-700 hover:text-slate-900"
-          >
-            ← Back
-          </Link>
         </div>
 
         {/* Card */}

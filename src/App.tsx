@@ -22,16 +22,9 @@ function App() {
           <nav className="flex flex-wrap items-center gap-2">
             <Link
               to="/"
-              className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
             >
               Portal
-            </Link>
-
-            <Link
-              to="/users"
-              className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
-            >
-              React CRUD
             </Link>
           </nav>
         </div>

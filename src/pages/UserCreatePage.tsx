@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCreateUser } from "../hooks/users.hooks";
 
@@ -96,13 +96,6 @@ export function UserCreatePage() {
 
             {/* Buttons */}
             <div className="flex items-center justify-between pt-2">
-              <Link
-                to="/users"
-                className="text-sm font-semibold text-gray-700 hover:text-gray-900"
-              >
-                ← Back
-              </Link>
-
               <button
                 type="submit"
                 disabled={!isValid || createMutation.isPending}

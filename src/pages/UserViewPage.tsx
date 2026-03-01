@@ -15,12 +15,6 @@ export function UserViewPage() {
       <div className="min-h-screen bg-slate-100 p-6">
         <div className="mx-auto max-w-xl rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
           <h1 className="text-xl font-bold text-slate-800">Invalid user id</h1>
-          <Link
-            to="/users"
-            className="mt-4 inline-block text-sm font-semibold text-indigo-600 hover:text-indigo-700"
-          >
-            ← Back to Users
-          </Link>
         </div>
       </div>
     );
@@ -39,13 +33,6 @@ export function UserViewPage() {
               View complete information for this user.
             </p>
           </div>
-
-          <Link
-            to="/users"
-            className="text-sm font-semibold text-slate-700 hover:text-slate-900"
-          >
-            ← Back
-          </Link>
         </div>
 
         {/* Card */}
