@@ -1,6 +1,139 @@
 import { Link } from "react-router-dom";
 
+type Action =
+  | {
+      kind: "internal";
+      to: string;
+      label: string;
+      variant?: "primary" | "secondary";
+    }
+  | {
+      kind: "external";
+      href: string;
+      label: string;
+      variant?: "primary" | "secondary";
+    };
+
+type Card = {
+  title: string;
+  description: string;
+  actions: Action[];
+};
+
+function buttonClass(variant: Action["variant"]) {
+  if (variant === "primary") {
+    return "rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700";
+  }
+  if (variant === "secondary") {
+    return "rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800";
+  }
+  return "rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50";
+}
+
+function CardItem({ card }: { card: Card }) {
+  return (
+    <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
+      <h2 className="text-xl font-bold text-slate-900">{card.title}</h2>
+      <p className="mt-2 text-sm text-slate-600">{card.description}</p>
+
+      <div className="mt-4 flex flex-wrap gap-3">
+        {card.actions.map((a) => {
+          const className = buttonClass(a.variant);
+
+          if (a.kind === "internal") {
+            return (
+              <Link
+                key={`${a.kind}-${a.to}-${a.label}`}
+                to={a.to}
+                className={className}
+              >
+                {a.label}
+              </Link>
+            );
+          }
+
+          return (
+            <a
+              key={`${a.kind}-${a.href}-${a.label}`}
+              href={a.href}
+              target="_blank"
+              rel="noreferrer"
+              className={className}
+            >
+              {a.label}
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export function PortalPage() {
+  const cards: Card[] = [
+    {
+      title: "React Fullstack CRUD",
+      description:
+        "React + React Router + TanStack Query consuming a .NET API (Render + Azure SQL).",
+      actions: [
+        {
+          kind: "internal",
+          to: "/users",
+          label: "Open Demo",
+          variant: "primary",
+        },
+      ],
+    },
+    {
+      title: "Angular Fullstack CRUD",
+      description:
+        "Angular + Router + HttpClient consuming the same .NET API (Render + Azure SQL).",
+      actions: [
+        {
+          kind: "external",
+          href: "https://charliebriones.github.io/angular-fullstack-crud/",
+          label: "Open Demo",
+          variant: "secondary",
+        },
+        {
+          kind: "external",
+          href: "https://github.com/charliebriones/angular-fullstack-crud",
+          label: "GitHub Repo",
+        },
+      ],
+    },
+    {
+      title: "Angular Local CRUD",
+      description:
+        "Frontend-only CRUD using in-memory state (no backend required).",
+      actions: [
+        {
+          kind: "external",
+          href: "https://charliebriones.github.io/angular-local-crud/",
+          label: "Open Demo",
+          variant: "secondary",
+        },
+        {
+          kind: "external",
+          href: "https://github.com/charliebriones/angular-local-crud",
+          label: "GitHub Repo",
+        },
+      ],
+    },
+    {
+      title: ".NET API (Render) + Azure SQL",
+      description:
+        "ASP.NET Core Web API deployed on Render and connected to Azure SQL Database.",
+      actions: [
+        {
+          kind: "external",
+          href: "https://usermanagement-mbtm.onrender.com/api/users",
+          label: "Live API Endpoint",
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-slate-100 p-6">
       <div className="mx-auto max-w-5xl">
@@ -26,100 +159,9 @@ export function PortalPage() {
         </div>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
-            <h2 className="text-xl font-bold text-slate-900">
-              React Fullstack CRUD
-            </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              React + TypeScript + TanStack Query + React Router
-            </p>
-
-            <div className="mt-4 flex flex-wrap gap-3">
-              <Link
-                to="/users"
-                className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700"
-              >
-                Open Demo
-              </Link>
-            </div>
-          </div>
-
-          <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
-            <h2 className="text-xl font-bold text-slate-900">
-              Angular Fullstack CRUD
-            </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Angular + Router + HttpClient • consumes .NET API (Render + Azure
-              SQL)
-            </p>
-
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a
-                href="https://charliebriones.github.io/angular-fullstack-crud/"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-              >
-                Open Demo
-              </a>
-              <a
-                href="https://github.com/charliebriones/angular-fullstack-crud"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                GitHub Repo
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
-            <h2 className="text-xl font-bold text-slate-900">
-              Angular Local CRUD
-            </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Frontend-only CRUD (in-memory / local) • fast demo of UI + state
-            </p>
-
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a
-                href="https://charliebriones.github.io/angular-local-crud/"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-              >
-                Open Demo
-              </a>
-              <a
-                href="https://github.com/charliebriones/angular-local-crud"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                GitHub Repo
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
-            <h2 className="text-xl font-bold text-slate-900">
-              .NET API (Render) + Azure SQL
-            </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Live API endpoint used by the fullstack demos.
-            </p>
-
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a
-                href="https://usermanagement-mbtm.onrender.com/api/users"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                Live API Endpoint
-              </a>
-            </div>
-          </div>
+          {cards.map((card) => (
+            <CardItem key={card.title} card={card} />
+          ))}
         </div>
       </div>
     </div>
