@@ -1,56 +1,36 @@
-# User Management System – Full Stack CRUD
+# React Fullstack CRUD – User Management System
 
 A full stack CRUD application built with **React (TypeScript)** consuming a **.NET Web API**, deployed to the cloud and connected to **Azure SQL Database**.
 
-This project demonstrates frontend-backend integration, API-driven architecture, and multi-framework implementation (React & Angular).
+This project demonstrates frontend-backend integration, environment configuration, cloud deployment, and framework comparison (React & Angular).
 
 ---
 
-## 🚀 Live Demo
+## 🌐 Live Demo
 
-### React Fullstack CRUD
+React App (GitHub Pages):
+https://charliebriones.github.io/react-fullstack-crud/
 
-Frontend: GitHub Pages  
-Backend: Render.com  
-Database: Azure SQL
-
-👉 Live App:  
-`https://your-react-live-url`
+Backend API (Render):
+https://usermanagement-mbtm.onrender.com/api/users
 
 ---
 
-## 🔄 Also Available
+## 🏗 Tech Stack
 
-### Angular Fullstack CRUD
-
-- Live: https://charliebriones.github.io/angular-fullstack-crud/
-- Repo: https://github.com/charliebriones/angular-fullstack-crud
-
-### Angular Local CRUD (Frontend Only)
-
-- Live: https://charliebriones.github.io/angular-local-crud/
-- Repo: https://github.com/charliebriones/angular-local-crud
-
----
-
-## 🏗 Architecture
-
-Frontend (React):
-
-- React + TypeScript
+### Frontend
+- React
+- TypeScript
 - TanStack Query (React Query)
-- React Router
+- React Router (HashRouter for GitHub Pages compatibility)
 - Tailwind CSS
+- Vite
 
-Backend:
-
+### Backend
 - ASP.NET Core Web API
 - RESTful endpoints
 - Hosted on Render.com
-- Connected to Azure SQL Database
-
-API Endpoint:
-https://usermanagement-mbtm.onrender.com/api/users
+- Azure SQL Database
 
 ---
 
@@ -60,30 +40,35 @@ https://usermanagement-mbtm.onrender.com/api/users
 - View User Details
 - Update User
 - Delete User
-- Server-side data persistence
+- Server-side persistence
 - Error handling
+- Environment-based configuration
 - Cloud deployment
 
 ---
 
-## 🧠 Why This Project?
+## 🔄 Related Projects
 
-This project was built to:
+### Angular Fullstack Version
+Live:
+https://charliebriones.github.io/angular-fullstack-crud/
 
-- Demonstrate full stack development capability
-- Compare React and Angular implementations
-- Showcase API integration with cloud deployment
-- Highlight clean architecture and separation of concerns
+Repository:
+https://github.com/charliebriones/angular-fullstack-crud
 
-Both the React and Angular versions consume the same .NET backend.
+### Angular Local CRUD (Frontend-only)
+Live:
+https://charliebriones.github.io/angular-local-crud/
+
+Repository:
+https://github.com/charliebriones/angular-local-crud
+
+Both Angular and React versions consume the same .NET backend API.
 
 ---
 
-## 📦 Local Development
+## ⚙ Environment Configuration
 
-### 1️⃣ Clone the repo
+This project uses Vite environment variables.
 
-```bash
-git clone https://github.com/charliebriones/react-fullstack-crud.git
-cd your-react-repo
-```
+### Development
