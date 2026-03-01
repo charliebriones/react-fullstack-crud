@@ -20,8 +20,8 @@ function Header() {
 
         {/* Stack Description */}
         <p className="mt-2 text-sm font-medium text-slate-600">
-          Full Stack CRUD • GitHub Pages • .NET API (Render.com) • Azure SQL
-          Database
+          React + React Router + TanStack Query consuming a .NET API (Render +
+          Azure SQL).
         </p>
 
         {/* Portal Button */}
