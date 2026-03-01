@@ -1,6 +1,8 @@
 import type { CreateUserInput, UpdateUserInput, User } from "../types/user";
 
-export const API_BASE = "https://usermanagement-mbtm.onrender.com/api/users";
+export const API_BASE =
+  import.meta.env.VITE_API_BASE ??
+  "https://usermanagement-mbtm.onrender.com/api/users";
 
 async function assertOk(res: Response, fallbackMsg: string) {
   if (res.ok) return;
